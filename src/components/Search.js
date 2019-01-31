@@ -1,39 +1,28 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
 
 import CharCard from "./CharCard";
-import { pubKey } from "../keys";
+import { getChars } from "../ducks/reducer";
 
 class Search extends Component {
   state = {
-    searchTerm: "",
-    characters: []
+    searchTerm: ""
   };
 
   handleSearch = () => {
-    axios
-      .get(
-        `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${
-          this.state.searchTerm
-        }&limit=100&apikey=${pubKey}`
-      )
-      .then(response => {
-        console.log("response: ", response.data.data.results);
-        this.setState({
-          characters: response.data.data.results
-        });
-      });
+    this.props.getChars(this.state.searchTerm);
   };
 
   render() {
     const chars =
-      this.state.characters &&
-      this.state.characters.map(char => {
+      this.props.characters &&
+      this.props.characters.map(char => {
         return (
           <CharCard
             key={char.id}
             name={char.name}
             img={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+            id={char.id}
           />
         );
       });
@@ -51,10 +40,13 @@ class Search extends Component {
           }
         />
         <button onClick={this.handleSearch}>Search</button>
-        {chars}
+        <div className="card-list">{chars}</div>
       </>
     );
   }
 }
 
-export default Search;
+export default connect(
+  state => state,
+  { getChars }
+)(Search);

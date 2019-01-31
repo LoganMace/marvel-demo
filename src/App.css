@@ -4,5 +4,20 @@
 
 .card-img {
   height: 200px;
-  width: auto;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.char-detail-img {
+  height: 400px;
+  float: left;
+  margin: 35px;
 }
