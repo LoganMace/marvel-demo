@@ -7,6 +7,40 @@ a {
   color: black;
 }
 
+nav {
+  height: 65px;
+  /* background: rgb(201, 0, 0); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border-bottom: solid 2px black; */
+  margin-bottom: 50px;
+}
+
+ul {
+  /* margin-right: 40px; */
+  display: flex;
+}
+
+ul a {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  line-height: 50px;
+  padding: 0 20px;
+  display: block;
+  background: rgb(201, 0, 0);
+  margin: 3px 25px;
+  border: solid 2px black;
+  border-radius: 15px;
+}
+
+ul a:hover {
+  background: white;
+  border: solid 2px rgb(201, 0, 0);
+  color: rgb(201, 0, 0);
+}
+
 .card {
   border: solid 1px lightgray;
   border-radius: 5px;
@@ -28,4 +62,8 @@ a {
   height: 400px;
   float: left;
   margin: 35px;
+}
+
+.char-detail-desc {
+  margin-right: 35px;
 }

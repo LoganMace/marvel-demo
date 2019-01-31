@@ -20,7 +20,7 @@ class CharDetails extends Component {
           alt={char.name}
         />
         <h2>{char.name}</h2>
-        <p>{char.description}</p>
+        <p className="char-detail-desc">{char.description}</p>
       </>
     );
   }
