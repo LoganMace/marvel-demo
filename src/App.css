@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.card {
+  border: solid 1px lightgray;
+  border-radius: 5px;
+  width: 400px;
+  height: 300px;
+}
+
 .card-img {
   height: 200px;
 }
@@ -10,10 +22,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-a {
-  text-decoration: none;
 }
 
 .char-detail-img {

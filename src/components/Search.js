@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { debounce } from "lodash";
 
 import CharCard from "./CharCard";
 import { getChars } from "../ducks/reducer";
@@ -9,8 +10,19 @@ class Search extends Component {
     searchTerm: ""
   };
 
-  handleSearch = () => {
+  debounceSearch = debounce(() => {
     this.props.getChars(this.state.searchTerm);
+  }, 500);
+
+  handleSearch = e => {
+    this.setState(
+      {
+        searchTerm: e.target.value
+      },
+      () => {
+        this.debounceSearch();
+      }
+    );
   };
 
   render() {
@@ -33,13 +45,8 @@ class Search extends Component {
           type="text"
           placeholder="Search by name..."
           value={this.state.searchTerm}
-          onChange={e =>
-            this.setState({
-              searchTerm: e.target.value
-            })
-          }
+          onChange={this.handleSearch}
         />
-        <button onClick={this.handleSearch}>Search</button>
         <div className="card-list">{chars}</div>
       </>
     );
