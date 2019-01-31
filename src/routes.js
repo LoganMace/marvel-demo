@@ -6,7 +6,7 @@ import CharDetails from "./components/CharDetails";
 
 export default (
   <Switch>
-    <Route path="/" component={Home} />
+    <Route exact path="/" component={Home} />
     <Route path="/search" component={Search} />
     <Route path="/char/:id" component={CharDetails} />
   </Switch>
