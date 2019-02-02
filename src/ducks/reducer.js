@@ -4,7 +4,8 @@ import { pubKey } from "../keys";
 // constants(action types):
 
 const GET_CHARS = "GET_CHARS",
-  GET_SINGLE_CHAR = "GET_SINGLE_CHAR";
+  GET_SINGLE_CHAR = "GET_SINGLE_CHAR",
+  GET_CHAR_COMICS = "GET_CHAR_COMICS";
 
 // functions(action creators):
 
@@ -26,11 +27,21 @@ export function getSingleChar(id) {
   };
 }
 
+export function getCharComics(id) {
+  return {
+    type: GET_CHAR_COMICS,
+    payload: axios.get(
+      `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?apikey=${pubKey}`
+    )
+  };
+}
+
 // state(initialState):
 
 const initialState = {
   characters: [],
-  char: {}
+  char: {},
+  comics: []
 };
 
 // reducer:
@@ -46,6 +57,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         char: action.payload.data.data.results[0]
+      };
+    case `${GET_CHAR_COMICS}_FULFILLED`:
+      return {
+        ...state,
+        comics: action.payload.data.data.results
       };
     default:
       return state;

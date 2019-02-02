@@ -10,6 +10,10 @@ class Search extends Component {
     searchTerm: ""
   };
 
+  componentDidMount() {
+    this.nameInput.focus();
+  }
+
   debounceSearch = debounce(() => {
     this.props.getChars(this.state.searchTerm);
   }, 500);
@@ -47,6 +51,9 @@ class Search extends Component {
           placeholder="Search by name..."
           value={this.state.searchTerm}
           onChange={this.handleSearch}
+          ref={input => {
+            this.nameInput = input;
+          }}
         />
         <div className="card-list">{chars}</div>
       </>
