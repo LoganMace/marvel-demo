@@ -10,7 +10,7 @@ class CharDetails extends Component {
   render() {
     const { char } = this.props;
     return (
-      <>
+      <div className="char-detail">
         <img
           className="char-detail-img"
           src={
@@ -21,7 +21,7 @@ class CharDetails extends Component {
         />
         <h2>{char.name}</h2>
         <p className="char-detail-desc">{char.description}</p>
-      </>
+      </div>
     );
   }
 }

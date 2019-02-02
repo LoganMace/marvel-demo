@@ -42,6 +42,7 @@ class Search extends Component {
     return (
       <>
         <input
+          className="searchField"
           type="text"
           placeholder="Search by name..."
           value={this.state.searchTerm}
