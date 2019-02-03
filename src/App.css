@@ -8,17 +8,13 @@ a {
 }
 
 nav {
-  /* height: 65px; */
-  /* background: rgb(201, 0, 0); */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border-bottom: solid 2px black; */
   margin-bottom: 50px;
 }
 
 ul {
-  /* margin-right: 40px; */
   display: flex;
   justify-content: center;
   padding: 0;
@@ -67,6 +63,7 @@ ul a:hover {
 
 .card-img {
   height: 200px;
+  box-shadow: 5px 5px 15px rgb(90, 90, 90);
 }
 
 .card-list {
@@ -86,11 +83,8 @@ ul a:hover {
 
 .char-detail-img {
   height: 400px;
-  /* float: left; */
   margin: 0 35px 0 20%;
-}
-
-.char-detail-text {
+  border: solid 4px black;
 }
 
 .char-detail-desc {
@@ -117,10 +111,43 @@ ul a:hover {
 .comic-img {
   height: 200px;
   width: auto;
-  box-shadow: 0 5px 15px grey;
+  box-shadow: 5px 5px 15px rgb(90, 90, 90);
 }
 
 .comic-list h3 {
   font-size: 15px;
   margin: 10px;
+}
+
+.comic-modal {
+  height: 75%;
+  width: 70%;
+  border: solid 2px black;
+  border-radius: 10px;
+  background: rgba(211, 211, 211, 0.521);
+  position: fixed;
+  z-index: 10;
+  top: 12.5%;
+  left: 15%;
+  margin: auto;
+  text-align: left;
+}
+
+.comic-modal-title {
+  float: left;
+  margin: 0 15px 15px 15px;
+}
+
+.comic-modal-img {
+  height: 400px;
+}
+
+.x {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  border: solid 3px black;
+  background: rgb(201, 0, 0);
+  padding: 7px;
+  font-weight: bolder;
 }

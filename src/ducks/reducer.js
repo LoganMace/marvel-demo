@@ -41,7 +41,8 @@ export function getCharComics(id) {
 const initialState = {
   characters: [],
   char: {},
-  comics: []
+  comics: [],
+  loading: false
 };
 
 // reducer:
@@ -61,7 +62,13 @@ export default function reducer(state = initialState, action) {
     case `${GET_CHAR_COMICS}_FULFILLED`:
       return {
         ...state,
-        comics: action.payload.data.data.results
+        comics: action.payload.data.data.results,
+        loading: false
+      };
+    case `${GET_CHAR_COMICS}_PENDING`:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

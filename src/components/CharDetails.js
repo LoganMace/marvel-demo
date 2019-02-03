@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSingleChar, getCharComics } from "../ducks/reducer";
+import ComicModal from "./ComicModal";
 
 class CharDetails extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class CharDetails extends Component {
       comics[0] &&
       comics.map(comic => {
         return (
-          <div className="comic">
+          <div className="comic" key={comic.id}>
             <h3>{comic.title}</h3>
             <div>
               <img
@@ -43,10 +44,19 @@ class CharDetails extends Component {
           />
           <div className="char-detail-text">
             <h2>{char.name}</h2>
-            <p className="char-detail-desc">{char.description}</p>
+            {char.description ? (
+              <p className="char-detail-desc">{char.description}</p>
+            ) : (
+              <p>No description...</p>
+            )}
           </div>
         </div>
-        <div className="comic-list">{comicBooks}</div>
+        {this.props.loading ? (
+          <h1>Loading Comics...</h1>
+        ) : (
+          <div className="comic-list">{comicBooks}</div>
+        )}
+        {comics[0] && <ComicModal comic={comics[0]} />}
       </>
     );
   }
