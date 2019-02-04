@@ -124,7 +124,7 @@ ul a:hover {
   width: 70%;
   border: solid 2px black;
   border-radius: 10px;
-  background: rgba(211, 211, 211, 0.521);
+  background: rgba(211, 211, 211, 0.863);
   position: fixed;
   z-index: 10;
   top: 12.5%;
@@ -135,11 +135,17 @@ ul a:hover {
 
 .comic-modal-title {
   float: left;
-  margin: 0 15px 15px 15px;
+  margin: 0 30px 15px 15px;
+  width: 300px;
 }
 
 .comic-modal-img {
   height: 400px;
+}
+
+.comic-modal-details {
+  margin-top: 55px;
+  margin-right: 30px;
 }
 
 .x {

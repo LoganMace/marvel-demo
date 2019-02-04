@@ -15,7 +15,16 @@ export default function ComicModal(props) {
           alt={props.comic.title}
         />
       </div>
-      <p>{props.comic.description}</p>
+      <div className="comic-modal-details">
+        <p>
+          <strong>Description: </strong>
+          {props.comic.description}
+        </p>
+        <p>
+          <strong>Creators: </strong>
+          {props.comic.creators.items.map(creator => `${creator.name}, `)}
+        </p>
+      </div>
     </div>
   ) : (
     <>
