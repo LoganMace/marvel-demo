@@ -14,6 +14,7 @@ class App extends Component {
         <BrowserRouter>
           <div className="App">
             <NavBar />
+            <h1>Marvel Character Search</h1>
             {routes}
           </div>
         </BrowserRouter>
